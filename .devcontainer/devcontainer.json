@@ -8,10 +8,9 @@
 		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,consistency=cached",
 		"type=bind,source=${localEnv:HOME}/.n8n,target=/home/node/.n8n,consistency=cached"
 	],
-	"forwardPorts": [8080, 5678],
+	"forwardPorts": [8080, 5678, 5173],
 	"postCreateCommand": "corepack prepare --activate && pnpm install",
-	"postAttachCommand": "pnpm build",
-	"customizations": {
+	    "postAttachCommand": "export PATH=\"$(pnpm bin):$PATH\" && pnpm build",	"customizations": {
 		"codespaces": {
 			"openFiles": ["CONTRIBUTING.md"]
 		}
