@@ -6,7 +6,8 @@
 	"mounts": [
 		"type=bind,source=${localWorkspaceFolder},target=/workspaces,consistency=cached",
 		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,consistency=cached",
-		"type=bind,source=${localEnv:HOME}/.n8n,target=/home/node/.n8n,consistency=cached"
+		"type=bind,source=${localEnv:HOME}/.n8n,target=/home/node/.n8n,consistency=cached",
+		"type=volume,source=n8n-pnpm-store,target=/home/node/.pnpm-store"
 	],
 	"forwardPorts": [8080, 5678, 5173],
 	"postCreateCommand": "corepack prepare --activate && pnpm install",
